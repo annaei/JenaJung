@@ -25,7 +25,8 @@ public class Transformers {
         PrefixMapping pmap = resource.getModel();
         String qname = pmap.qnameFor(resource.getURI());
         if (qname != null) return qname;
-        return "<" + resource.getURI() + ">";
+//        return "<" + resource.getURI() + ">"; //original, full URI. 
+        return resource.getLocalName(); //simplified for ease of reading
     }
 
     public static class NodeT implements Transformer<RDFNode, String> {
